@@ -6,7 +6,9 @@ import SwiftUI
 
 enum AppConfig {
     static let serviceLabel = "com.juma.airdrop-heic-converter"
-    static let projectDirectory = "/Users/jumafernandez/Documents/ChatGPT/fotosMac"
+    static var projectDirectory: String {
+        Bundle.main.resourceURL?.path ?? FileManager.default.currentDirectoryPath
+    }
     static var launchAgentPlist: String {
         "\(NSHomeDirectory())/Library/LaunchAgents/\(serviceLabel).plist"
     }

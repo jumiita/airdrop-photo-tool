@@ -5,11 +5,12 @@ APP_NAME="AirDrop HEIC Converter Status.app"
 EXECUTABLE="AirDropPhotoTool"
 CONTENTS="$APP_NAME/Contents"
 MACOS="$CONTENTS/MacOS"
+RESOURCES="$CONTENTS/Resources"
 
 if [[ -d "$APP_NAME" ]]; then
   /usr/bin/find "$APP_NAME" -depth -mindepth 1 -delete
 fi
-mkdir -p "$MACOS"
+mkdir -p "$MACOS" "$RESOURCES"
 
 cat > "$CONTENTS/Info.plist" <<PLIST
 <?xml version="1.0" encoding="UTF-8"?>
@@ -40,6 +41,8 @@ cat > "$CONTENTS/Info.plist" <<PLIST
 PLIST
 
 swiftc -parse-as-library PhotoToolApp.swift -o "$MACOS/$EXECUTABLE"
+cp heic_airdrop_watcher.py install.sh uninstall.sh "$RESOURCES/"
+chmod +x "$RESOURCES/heic_airdrop_watcher.py" "$RESOURCES/install.sh" "$RESOURCES/uninstall.sh"
 codesign --force --deep --sign - "$APP_NAME" >/dev/null 2>&1 || true
 
 mkdir -p "$HOME/Applications"

@@ -6,7 +6,7 @@ Convierte automáticamente fotos `.HEIC` recibidas por AirDrop en el Mac.
 
 ## Descargar
 
-1. Descarga el `.zip` de la ultima release.
+1. Descarga el `.zip` de la [ultima release](https://github.com/jumiita/airdrop-photo-tool/releases/latest).
 2. Descomprime `AirDrop HEIC Converter Status.app`.
 3. Mueve la app a `Aplicaciones`.
 4. Abrela con doble clic.
