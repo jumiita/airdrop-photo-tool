@@ -1,0 +1,9 @@
+.DS_Store
+*.swp
+*.xcuserstate
+__pycache__/
+*.pyc
+dist/
+release/
+*.zip
+*.app/
